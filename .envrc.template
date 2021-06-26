@@ -1,0 +1,31 @@
+# BASE (주의: 환경 변수의 기준 값으로 변수 값 내에 다른 환경 변수를 참조하면 안됨)
+export SKP_USER="skp"
+export SKP_USERID=$(id -u $SKP_USER)
+export SKP_USER_HOME="/home/skp"
+export SKP_HOME="/home/skp/skp"
+
+# LOCALE
+export LOCALE="ko_KR.UTF-8" # or "en_US.UTF-8"
+
+# PYTHON
+export PYENV_PYVER="3.8.9"
+export PYENV_VENV="skp-n4e-vscode"
+export PATH="$HOME/.pyenv/bin:${PATH}"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+pyenv activate ${PYENV_VENV} 
+
+# NODEJS - N
+export N_PREFIX="${SKP_USER_HOME}/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# VSCODE
+export VSCODE_HOME="${SKP_HOME}/skp_n4e_vscode"
+export VSCODE_NAME="skp-n4e-vscode"
+export VSCODE_VER="3.10.2"
+export VSCODE_HOST="0.0.0.0"
+export VSCODE_PORT="5010"
+
+# SECRET
+. ./.secret

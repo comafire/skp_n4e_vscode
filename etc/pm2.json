@@ -1,0 +1,8 @@
+{
+  "apps" : [{
+    "script" : "PASSWORD=${VSCODE_PASSWD} ${VSCODE_HOME}/usr/code-server/bin/code-server --auth password --bind-addr ${VSCODE_HOST}:${VSCODE_PORT} --user-data-dir ${VSCODE_HOME}/var/user_data --extensions-dir ${VSCODE_HOME}/var/extensions ${SKP_HOME}",
+    "name" : "${VSCODE_NAME}",
+    "args" : "",
+    "restart_delay" : 3000 
+  }]
+}
